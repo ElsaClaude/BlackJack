@@ -18,15 +18,15 @@
   margin-right: auto;
   display: block;
 }
-.dealer{
+#Dealer\'s{
   position: relative;
   text-align: center;
-  top: 16%;
+  top: 18%;
 }
-.yourself{
+#Your{
   position: relative;
   text-align: center;
-  top: 31%;
+  top: 33%;
 }
 
 #wrapper{
@@ -42,7 +42,14 @@
   width: 290px;
 }
 #yourarea{
+  height: 100px;
   position: relative;
-  top: 32%;
-  left: 20%;
+  top: 33%;
+  left: 39%;
+}
+#dealerarea{
+  height: 100px;
+  position: relative;
+  top: 18%;
+  left: 39%;
 }
