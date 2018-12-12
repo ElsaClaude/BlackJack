@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <meta charset="utf-8"/>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1> Marathon Jack</h1>
-  <div class="area">
-    <h2> Dealer's cards</h2>
-    <img src="./Images/1.BMP" id="as_trefle"/>
-    <h2> Dealer's cards</h2>
-    <img src="./Images/1.BMP" id="as_trefle"/>
+  <div id="wrapper">
+    <h1> Marathon Jack</h1>
+    <div class="area">
+      <!-- <img src="./Images/table.png"/> -->
+      <h2 class="dealer"> Dealer's cards</h2>
+      <img src="./Images/1.BMP" id="as_trefle"/>
+      <h2 class="yourself"> Your cards</h2>
+      <div id="yourarea">
+      </div>
+    </div>
+    <div id="buttons">
+      <button id="cardbutton" type="submit">Card</button>
+      <button id="staybutton" type="submit">Stay</button>
+      <button id="startagainbutton" type="submit">Start again</button>
+    </div>
   </div>
   <script type="text/javascript" src="script.js"></script>
 </body>
