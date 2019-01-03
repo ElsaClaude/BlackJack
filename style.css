@@ -1,8 +1,9 @@
 .area {
   background-image: url("./nasa-53884-unsplash.jpg");
-  background-repeat: round;
+  background-repeat: no-repeat;
   width: 100%;
   height: 900px;
+  background-size: 100%;
 }
 .area2 {
   width: 100%;
@@ -14,7 +15,18 @@ h1 {
   text-align: center;
   font-size: 45px;
 }
-#Dealer\'s{
+
+#rules img{
+  height: 50px;
+  position: absolute;
+  z-index: 2;
+  transition: height 1s;
+}
+#rules img:hover{
+  height: 1000px;
+}
+
+#Ennemie{
   position: relative;
   text-align: center;
   top: 18%;
@@ -32,7 +44,6 @@ h1 {
   display: block;
   width: 310px;
 }
-
 .button2{
   transition-duration: 0.8s;
   cursor: pointer;
@@ -62,7 +73,6 @@ h1 {
   0% {bottom:-1000px;}
   100% {bottom:0px;}
 }
-
 #dealerarea{
   height: 100px;
   position: relative;
@@ -79,7 +89,6 @@ h1 {
   0% {bottom:1000px;}
   100% {bottom:0px;}
 }
-
 /***********************************************************/
 #myImg {
     display: none;
@@ -88,7 +97,7 @@ h1 {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 3; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -97,7 +106,6 @@ h1 {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(25, 25, 25); /* Black w/ opacity */
 }
-
 /* Modal Content (image) */
 .modal-content {
     margin: auto;
@@ -105,7 +113,6 @@ h1 {
     width: 80%;
     max-width: 700px;
 }
-
 /* Caption of Modal Image */
 #caption {
     margin: auto;
@@ -117,7 +124,6 @@ h1 {
     padding: 10px 0;
     height: 150px;
 }
-
 /* Add Animation */
 .modal-content, #caption {
     -webkit-animation-name: zoom;
@@ -125,25 +131,20 @@ h1 {
     animation-name: zoom;
     animation-duration: 0.6s;
 }
-
 @-webkit-keyframes zoom {
     from {-webkit-transform:scale(0)}
     to {-webkit-transform:scale(1)}
 }
-
 @keyframes zoom {
     from {transform:scale(0)}
     to {transform:scale(1)}
 }
-
-
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
     .modal-content {
         width: 100%;
     }
 }
-
 .center {
   display: block;
   margin-left: auto;

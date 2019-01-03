@@ -1,7 +1,7 @@
 function setupListeners() {
   cardlist();
   let tmp3=[];
-  tmp3=deal(scoredealer,"Dealer's","dealerarea",as_dealer);
+  tmp3=deal(scoredealer,"Ennemie","dealerarea",as_dealer);
   scoredealer=tmp3[0];
   as_dealer=tmp3[1];
   var carddeal = document.getElementById("cardbutton");
@@ -33,16 +33,16 @@ var dealer=function(){
     if (endgame==0){
       for (let i=0; i<6; i++){
         if (scoredealer<scoreplayer && scoredealer<=42) {
-          tmp2 = deal(scoredealer, "Dealer's","dealerarea",as_dealer);
+          tmp2 = deal(scoredealer, "Ennemie","dealerarea",as_dealer);
           scoredealer=tmp2[0];
           as_dealer=tmp2[1];
           if (scoredealer>42 && as_dealer>0) {
             scoredealer-=10;
             as_dealer-=1;
-            tmp2 = deal(scoredealer, "Dealer's","dealerarea",as_dealer);
+            tmp2 = deal(scoredealer, "Ennemie","dealerarea",as_dealer);
             scoredealer=tmp2[0];
             as_dealer=tmp2[1];
-            document.getElementById("Dealer's").innerHTML = "Dealer's score : "+ scoredealer;
+            document.getElementById("Ennemie").innerHTML = "Ennemie flotte : "+ (42-scoredealer)+'.000titanes';
           }
         }
         endgame=1;
@@ -76,7 +76,7 @@ var player=function(){
       if (scoreplayer>42 && as_player>0){
         scoreplayer-=10;
         as_player-=1;
-        document.getElementById("Your").innerHTML = "Your : "+ (42-scoreplayer)+".000titane";
+        document.getElementById("Your").innerHTML = "Votre flotte : "+ (42-scoreplayer)+".000titane";
       }
     }
     if (scoreplayer>42){
