@@ -1,9 +1,15 @@
 .area {
-  background-image: url("./Images/table.png");
-  background-repeat: no-repeat;
+  background-image: url("./nasa-53884-unsplash.jpg");
+  background-repeat: round;
   width: 100%;
   height: 900px;
 }
+.area2 {
+  width: 100%;
+  height: 700px;
+}
+
+
 #as_trefle {
   position: relative;
   top: 17%;
@@ -22,6 +28,7 @@
   position: relative;
   text-align: center;
   top: 18%;
+  color: white;
 }
 #Your{
   position: relative;
@@ -30,9 +37,9 @@
 }
 
 #wrapper{
-  margin-left: auto;
+  /* margin-left: auto;
   margin-right: auto;
-  width: 1655px;
+  width: 1655px; */
 }
 #buttons{
   position: relative;
