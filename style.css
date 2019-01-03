@@ -52,23 +52,38 @@ h1 {
   top: 33%;
   left: 39%;
 }
+#yourarea img {
+  transition: 0.8s;
+  position: relative;
+  -webkit-animation-name: mymove;
+  -webkit-animation-duration: 0.6s;
+}
+@-webkit-keyframes mymove {
+  0% {bottom:-1000px;}
+  100% {bottom:0px;}
+}
+
 #dealerarea{
   height: 100px;
   position: relative;
   top: 18%;
   left: 39%;
 }
+#dealerarea img{
+  transition: 0.8s;
+  position: relative;
+  -webkit-animation-name: dealermove;
+  -webkit-animation-duration: 0.6s;
+}
+@-webkit-keyframes dealermove {
+  0% {bottom:1000px;}
+  100% {bottom:0px;}
+}
 
 /***********************************************************/
 #myImg {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
     display: none;
 }
-
-#myImg:hover {opacity: 0.7;}
-
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
