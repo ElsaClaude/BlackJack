@@ -1,9 +1,4 @@
 function setupListeners() {
-  // let deck=Array();
-  // let nbcard=52;
-  // let j=0;
-  // let scoreplayer=0;
-  // let scoredealer=0;
   cardlist();
   let tmp3=[];
   tmp3=deal(scoredealer,"Dealer's","dealerarea",as_dealer);
@@ -33,31 +28,35 @@ var cardlist=function() {
 }
 var dealer=function(){
   let tmp2=[];
-  flag_end=1;
-  if (endgame==0){
-    for (let i=0; i<6; i++){
-      if (scoredealer<scoreplayer && scoredealer<=42) {
-        tmp2 = deal(scoredealer, "Dealer's","dealerarea",as_dealer);
-        scoredealer=tmp2[0];
-        as_dealer=tmp2[1];
-        if (scoredealer>42 && as_dealer>0) {
-          scoredealer-=10;
-          as_dealer-=1;
-          // console.log(tmp2);
+  if (flag_end==0){
+    flag_end=1;
+    if (endgame==0){
+      for (let i=0; i<6; i++){
+        if (scoredealer<scoreplayer && scoredealer<=42) {
           tmp2 = deal(scoredealer, "Dealer's","dealerarea",as_dealer);
-          // console.log(tmp2);
           scoredealer=tmp2[0];
           as_dealer=tmp2[1];
-          document.getElementById("Dealer's").innerHTML = "Dealer's score : "+ scoredealer;
+          if (scoredealer>42 && as_dealer>0) {
+            scoredealer-=10;
+            as_dealer-=1;
+            tmp2 = deal(scoredealer, "Dealer's","dealerarea",as_dealer);
+            scoredealer=tmp2[0];
+            as_dealer=tmp2[1];
+            document.getElementById("Dealer's").innerHTML = "Dealer's score : "+ scoredealer;
+          }
         }
+        endgame=1;
       }
-      endgame=1;
     }
+    else {
+      window.alert("La banque a déjà joué !");
+    }
+    resultats();
   }
   else {
-    window.alert("La banque a déjà joué !");
+    window.alert ("La partie est déjà terminée !");
+    resultats();
   }
-  resultats();
 }
 var resultats=function(){
   if ((scoreplayer<=42 && scoredealer<scoreplayer) || (scoreplayer<=42 && scoredealer>42)){
@@ -77,11 +76,12 @@ var player=function(){
       if (scoreplayer>42 && as_player>0){
         scoreplayer-=10;
         as_player-=1;
-        document.getElementById("Your").innerHTML = "Your score : "+ scoreplayer;
+        document.getElementById("Your").innerHTML = "Your : "+ (42-scoreplayer)+".000titane";
       }
     }
     if (scoreplayer>42){
       window.alert("GAME OVER !");
+      flag_end=1;
     }
   }
   else {
@@ -114,10 +114,8 @@ var deal=function(score,challenger,area,count_as){
   score+=deck[random_index][1];
   deck.splice(random_index,1);
   nbcard--;
-  document.getElementById(challenger).innerHTML = challenger+" score : "+ score;
+  document.getElementById(challenger).innerHTML = challenger+" : "+ (42-score) +".000titanes";
   return [score,count_as];
-  // console.log(random_index);
-  // console.log(deck);
 }
 
 let as_player=0;
