@@ -1,5 +1,5 @@
 .area {
-  background-image: url("./nasa-53884-unsplash.jpg");
+  background-image: url("richard-gatley-533872-unsplash.jpg");
   background-repeat: no-repeat;
   width: 100%;
   height: 900px;
@@ -29,20 +29,20 @@ h1 {
 #Ennemie{
   position: relative;
   text-align: center;
-  top: 18%;
+  top: 4%;
   color: white;
 }
 #Your{
   position: relative;
   text-align: center;
-  top: 33%;
+  top: 50%;
 }
 #buttons{
   position: relative;
   margin-left: auto;
   margin-right: auto;
   display: block;
-  width: 310px;
+  width: 400px;
 }
 .button2{
   transition-duration: 0.8s;
@@ -60,30 +60,32 @@ h1 {
 #yourarea{
   height: 100px;
   position: relative;
-  top: 33%;
-  left: 39%;
+  top: 53%;
+  left: 25%;
 }
 #yourarea img {
   transition: 0.8s;
   position: relative;
   -webkit-animation-name: mymove;
   -webkit-animation-duration: 0.6s;
+  width: 150px;
 }
 @-webkit-keyframes mymove {
-  0% {bottom:-1000px;}
+  0% {bottom:-500px;}
   100% {bottom:0px;}
 }
 #dealerarea{
   height: 100px;
   position: relative;
-  top: 18%;
-  left: 39%;
+  top: 6%;
+  left: 25%;
 }
 #dealerarea img{
   transition: 0.8s;
   position: relative;
   -webkit-animation-name: dealermove;
   -webkit-animation-duration: 0.6s;
+  width: 150px;
 }
 @-webkit-keyframes dealermove {
   0% {bottom:1000px;}

@@ -13,7 +13,7 @@ function setupListeners() {
 }
 var cardlist=function() {
   for (let i=1; i<=nbcard; i++){
-    let name_image="./Images/"+i+".BMP";
+    let name_image="./Images/vaisseaux_png_Copie/"+i+".png";
     if (i%13<=10 && i%13!=0 && i%13!=1) {
       j=i%13;
     }
@@ -42,7 +42,7 @@ var dealer=function(){
             tmp2 = deal(scoredealer, "Ennemie","dealerarea",as_dealer);
             scoredealer=tmp2[0];
             as_dealer=tmp2[1];
-            document.getElementById("Ennemie").innerHTML = "Ennemie flotte : "+ (42-scoredealer)+'.000titanes';
+            document.getElementById("Ennemie").innerHTML = "Ennemie flotte : "+ (42-scoredealer)+'titane(s)';
           }
         }
         endgame=1;
@@ -76,7 +76,7 @@ var player=function(){
       if (scoreplayer>42 && as_player>0){
         scoreplayer-=10;
         as_player-=1;
-        document.getElementById("Your").innerHTML = "Votre flotte : "+ (42-scoreplayer)+".000titane";
+        document.getElementById("Your").innerHTML = "Votre flotte : "+ (42-scoreplayer)+"titane(s)";
       }
     }
     if (scoreplayer>42){
@@ -114,7 +114,7 @@ var deal=function(score,challenger,area,count_as){
   score+=deck[random_index][1];
   deck.splice(random_index,1);
   nbcard--;
-  document.getElementById(challenger).innerHTML = challenger+" : "+ (42-score) +".000titanes";
+  document.getElementById(challenger).innerHTML = challenger+" : "+ (42-score) +"titane(s)";
   return [score,count_as];
 }
 
