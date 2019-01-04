@@ -13,7 +13,7 @@ function setupListeners() {
 }
 var cardlist=function() {
   for (let i=1; i<=nbcard; i++){
-    let name_image="./Images/vaisseaux_png_Copie/"+i+".png";
+    let name_image="./vaisseaux_png_Copie/"+i+".png";
     if (i%13<=10 && i%13!=0 && i%13!=1) {
       j=i%13;
     }
