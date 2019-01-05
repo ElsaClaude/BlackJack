@@ -1,9 +1,10 @@
 function setupListeners() {
   cardlist();
   let tmp3=[];
-  tmp3=deal(scoredealer,"Ennemie","dealerarea",as_dealer);
-  scoredealer=tmp3[0];
+  tmp3=deal(ScoreEnnemie,"Ennemie","ZoneEnnemie",as_dealer);
+  ScoreEnnemie=tmp3[0];
   as_dealer=tmp3[1];
+  document.getElementById("Ennemie").innerHTML ="Ressources ennemies : "+ (42-ScoreEnnemie) +"titane(s)";
   var carddeal = document.getElementById("cardbutton");
   carddeal.addEventListener("click",player);
   var staybutton = document.getElementById("staybutton");
@@ -32,24 +33,30 @@ var dealer=function(){
     flag_end=1;
     if (endgame==0){
       for (let i=0; i<6; i++){
-        if (scoredealer<scoreplayer && scoredealer<=42) {
-          tmp2 = deal(scoredealer, "Ennemie","dealerarea",as_dealer);
-          scoredealer=tmp2[0];
+        if (ScoreEnnemie<ScoreJoueur && ScoreEnnemie<=42) {
+          tmp2 = deal(ScoreEnnemie, "Ennemie","ZoneEnnemie",as_dealer);
+          ScoreEnnemie=tmp2[0];
           as_dealer=tmp2[1];
-          if (scoredealer>42 && as_dealer>0) {
-            scoredealer-=10;
+          document.getElementById("Ennemie").innerHTML ="Ressources ennemies : "+ (42-ScoreEnnemie) +"titane(s)";
+          if (ScoreEnnemie>42 && as_dealer>0) {
+            ScoreEnnemie-=10;
             as_dealer-=1;
-            tmp2 = deal(scoredealer, "Ennemie","dealerarea",as_dealer);
-            scoredealer=tmp2[0];
+            tmp2 = deal(ScoreEnnemie, "Ennemie","ZoneEnnemie",as_dealer);
+            ScoreEnnemie=tmp2[0];
             as_dealer=tmp2[1];
-            document.getElementById("Ennemie").innerHTML = "Ennemie flotte : "+ (42-scoredealer)+'titane(s)';
+            window.alert("Un des vaisseaux Commander ennemi a vendu des artéfacts et la flotte récupère 10titanes ! ")
+            if (ScoreEnnemie>42 && as_dealer>0) {
+              ScoreEnnemie-=10;
+              as_dealer-=1;
+            }
+            document.getElementById("Ennemie").innerHTML = "Ressources ennemies : "+ (42-ScoreEnnemie) +"titane(s)";
           }
         }
         endgame=1;
       }
     }
     else {
-      window.alert("La banque a déjà joué !");
+      window.alert("La flotte ennemie a déjà contre attaqué !");
     }
     resultats();
   }
@@ -59,30 +66,37 @@ var dealer=function(){
   }
 }
 var resultats=function(){
-  if ((scoreplayer<=42 && scoredealer<scoreplayer) || (scoreplayer<=42 && scoredealer>42)){
-    window.alert("Le joueur a un score de " + scoreplayer + "\nLa banque a un score de "+scoredealer+"\nLe joueur a gagné !");
+  if (ScoreJoueur<=42 && ScoreEnnemie<ScoreJoueur){
+    window.alert("La flotte du joueur a une puissance de " + ScoreJoueur + "\nLa flotte ennemie a une puissance de "+ScoreEnnemie+"\nLe joueur a gagné !");
+  }
+  else if (ScoreJoueur<=42 && ScoreEnnemie>42) {
+    window.alert("L'ennemie n'a plus de quoi payer ses mercenaires et ils se mutinent contre lui !\nLe joueur a gagné !")
+  }
+  else if (ScoreJoueur<=42 && ScoreEnnemie>=ScoreJoueur) {
+    window.alert("La flotte du joueur a une puissance de " + ScoreJoueur + "\nLa flotte ennemie a une puissance de "+ScoreEnnemie+"\nLe joueur a perdu !");
   }
   else {
-    window.alert("Le joueur a un score de " + scoreplayer + "\nLa banque a un score de "+scoredealer+"\nLe joueur a perdu !");
+    window.alert("Vous n'avez plus de quoi payer vos mercenaires ! Ils rejoignent le camp adverse !\nVous avez perdu ! ")
   }
 }
 var player=function(){
   let tmp=[];
   if (flag_end==0){
-    if (scoreplayer<=42){
-      tmp = deal(scoreplayer,"Your","yourarea",as_player);
-      scoreplayer=tmp[0];
+    if (ScoreJoueur<=42){
+      tmp = deal(ScoreJoueur,"Joueur","ZoneJoueur",as_player);
+      ScoreJoueur=tmp[0];
       as_player=tmp[1];
-      if (scoreplayer>42 && as_player>0){
-        scoreplayer-=10;
+      if (ScoreJoueur>42 && as_player>0){
+        ScoreJoueur-=10;
         as_player-=1;
-        document.getElementById("Your").innerHTML = "Votre flotte : "+ (42-scoreplayer)+"titane(s)";
+        window.alert("Un de vos vaisseaux Commander a vendu des artéfacts et vous récupèrez 10titanes ! ")
       }
     }
-    if (scoreplayer>42){
+    if (ScoreJoueur>42){
       window.alert("GAME OVER !");
       flag_end=1;
     }
+    document.getElementById("Joueur").innerHTML = "Vos ressources : "+ (42-ScoreJoueur)+"titane(s)";
   }
   else {
     window.alert ("La partie est déjà terminée !");
@@ -114,7 +128,6 @@ var deal=function(score,challenger,area,count_as){
   score+=deck[random_index][1];
   deck.splice(random_index,1);
   nbcard--;
-  document.getElementById(challenger).innerHTML = challenger+" : "+ (42-score) +"titane(s)";
   return [score,count_as];
 }
 
@@ -125,6 +138,6 @@ let endgame=0;
 let deck=Array();
 let nbcard=52;
 let j=0;
-let scoreplayer=0;
-let scoredealer=0;
+let ScoreJoueur=0;
+let ScoreEnnemie=0;
 setupListeners();
