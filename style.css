@@ -69,6 +69,7 @@ h1 {
   -webkit-animation-name: mymove;
   -webkit-animation-duration: 0.6s;
   width: 150px;
+  margin-right: 50px;
 }
 @-webkit-keyframes mymove {
   0% {bottom:-500px;}
@@ -86,6 +87,7 @@ h1 {
   -webkit-animation-name: dealermove;
   -webkit-animation-duration: 0.6s;
   width: 150px;
+  margin-right: 50px;
 }
 @-webkit-keyframes dealermove {
   0% {bottom:1000px;}
