@@ -17,11 +17,11 @@ body {
 }
 #regles img{
   height: 10%;
-  top: 25%;
+  top: 20%;
   position: absolute;
   z-index: 2;
   transition: height 1s, left 1s, top 1s;
-  left: 90%;
+  left: 87%;
 }
 #regles img:hover{
   height: 100%;
@@ -32,7 +32,7 @@ body {
   position: relative;
   text-align: center;
   top: -7%;
-  color: white;
+  color: #e7a552;
 }
 #ZoneEnnemie{
   height: 100px;
@@ -53,6 +53,7 @@ body {
   position: relative;
   text-align: center;
   top: 12%;
+  color: #e7a552;
 }
 #ZoneJoueur{
   height: 100px;
