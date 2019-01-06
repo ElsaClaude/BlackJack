@@ -92,6 +92,13 @@ body {
   background-color: #94745b;
   color: white;
 }
+#explosion img{
+  position: absolute;
+  width: 50%;
+  z-index: -1;
+  left: 24%;
+  top: 0%;
+}
 @-webkit-keyframes alliemouvement {
   0% {bottom:-500px;}
   100% {bottom:0px;}

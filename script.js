@@ -67,15 +67,19 @@ var dealer=function(){
 }
 var resultats=function(){
   if (ScoreJoueur<=42 && ScoreEnnemie<ScoreJoueur){
+    addImgInDiv("./giphy2.gif","explosion");
     window.alert("La flotte du joueur a une puissance de " + ScoreJoueur + "\nLa flotte ennemie a une puissance de "+ScoreEnnemie+"\nLe joueur a gagné !");
   }
   else if (ScoreJoueur<=42 && ScoreEnnemie>42) {
+    addImgInDiv("./giphy2.gif","explosion");
     window.alert("L'ennemie n'a plus de quoi payer ses mercenaires et ils se mutinent contre lui !\nLe joueur a gagné !")
   }
   else if (ScoreJoueur<=42 && ScoreEnnemie>=ScoreJoueur) {
+    addImgInDiv("./3iCN.gif","explosion");
     window.alert("La flotte du joueur a une puissance de " + ScoreJoueur + "\nLa flotte ennemie a une puissance de "+ScoreEnnemie+"\nLe joueur a perdu !");
   }
   else {
+    addImgInDiv("./3iCN.gif","explosion");
     window.alert("Vous n'avez plus de quoi payer vos mercenaires ! Ils rejoignent le camp adverse !\nVous avez perdu ! ")
   }
 }
@@ -89,11 +93,14 @@ var player=function(){
       if (ScoreJoueur>42 && as_player>0){
         ScoreJoueur-=10;
         as_player-=1;
+        document.getElementById("Joueur").innerHTML = "Vos ressources : "+ (42-ScoreJoueur)+"titane(s)";
         window.alert("Un de vos vaisseaux Commander a vendu des artéfacts et vous récupèrez 10titanes ! ")
       }
     }
     if (ScoreJoueur>42){
-      window.alert("GAME OVER !");
+      document.getElementById("Joueur").innerHTML = "Vos ressources : "+ (42-ScoreJoueur)+"titane(s)";
+      addImgInDiv("./3iCN.gif","explosion");
+      window.alert("Vous n'avez plus de quoi payer vos mercenaires ! Ils rejoignent le camp adverse !");
       flag_end=1;
     }
     document.getElementById("Joueur").innerHTML = "Vos ressources : "+ (42-ScoreJoueur)+"titane(s)";
